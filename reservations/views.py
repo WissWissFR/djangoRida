@@ -24,7 +24,7 @@ def reservation(request):
     if request.method == "POST":
         ecole_id = request.POST["ecole_id"]
         date_str = request.POST["date"]
-        date_obj = datetime.strptime(date_str, "%Y-%m-%d %H:%M")
+        date_obj = datetime.strptime(date_str, '%Y-%m-%dT%H:%M')
         ecole = Ecole.objects.get(id=ecole_id)
 
         reservation = Reservation(ecole=ecole, client=request.user, date=date_obj)

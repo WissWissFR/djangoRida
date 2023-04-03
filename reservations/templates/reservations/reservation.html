@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Réservation</title>
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css">
 </head>
 <body>
     <h1>Réserver une école</h1>
     <form method="post">
-        {% comment %} {% csrf_token %} {% endcomment %}
+        {% csrf_token %}
         <label for="ecole_id">Choisissez une école :</label>
         <select id="ecole_id" name="ecole_id" required>
-            {% comment %} {% for ecole in ecoles %}
+            {% for ecole in ecoles %}
                 <option value="{{ ecole.id }}">{{ ecole.nom }}</option>
-            {% endfor %} {% endcomment %}
+            {% endfor %} 
         </select>
         <br>
         <label for="date">Date et heure de réservation :</label>

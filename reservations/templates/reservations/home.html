@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Accueil</title>
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css">
 </head>
 <body>
     <h1>Liste des écoles</h1>
     <ul>
-        {% comment %} {% for ecole in ecoles %}
+        {% for ecole in ecoles %}
             <li><a href="{% url 'ecole' ecole.id %}">{{ ecole.nom }}</a></li>
-        {% endfor %} {% endcomment %}
+        {% endfor %}
     </ul>
-    <a href="{% url 'reservation' %}">Réserver une école</a>
+    <a href="{% url 'reservation' %}">Réserver une école</a> <br>
+    <a href="accounts/logout/">LogOut</a>
 </body>
 </html>

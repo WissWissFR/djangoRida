@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page École</title>
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css">
 </head>
 <body>
     <h1>{{ ecole.nom }}</h1>
     <h2>Réservations</h2>
-    {% comment %} {% if reservations %} {% endcomment %}
+    {% if reservations %}
         <table>
             <thead>
                 <tr>
@@ -17,17 +18,17 @@
                 </tr>
             </thead>
             <tbody>
-                {% comment %} {% for reservation in reservations %}
+                {% for reservation in reservations %}
                     <tr>
                         <td>{{ reservation.client.username }}</td>
                         <td>{{ reservation.date }}</td>
                     </tr>
-                {% endfor %} {% endcomment %}
+                {% endfor %}
             </tbody>
         </table>
-    {% comment %} {% else %}
+    {% else %}
         <p>Aucune réservation pour cette école.</p>
-    {% endif %} {% endcomment %}
+    {% endif %}
     <a href="{% url 'home' %}">Retour à la liste des écoles</a>
 </body>
 </html>
