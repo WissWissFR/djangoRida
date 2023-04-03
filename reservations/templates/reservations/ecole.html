@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page École</title>
+</head>
+<body>
+    <h1>{{ ecole.nom }}</h1>
+    <h2>Réservations</h2>
+    {% comment %} {% if reservations %} {% endcomment %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Client</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% comment %} {% for reservation in reservations %}
+                    <tr>
+                        <td>{{ reservation.client.username }}</td>
+                        <td>{{ reservation.date }}</td>
+                    </tr>
+                {% endfor %} {% endcomment %}
+            </tbody>
+        </table>
+    {% comment %} {% else %}
+        <p>Aucune réservation pour cette école.</p>
+    {% endif %} {% endcomment %}
+    <a href="{% url 'home' %}">Retour à la liste des écoles</a>
+</body>
+</html>
